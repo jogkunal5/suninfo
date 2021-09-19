@@ -1,65 +1,65 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import Layout, { siteTitle } from '../components/layout';
+import utilStyles from '../styles/utils.module.css';
+import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="container">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <Layout home>
 
-      <main>
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+      <div className="container">
+        <Head>
+          <title>{siteTitle}</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
 
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
+        <main>
+          <div className="grid">
 
-        <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+            <Link href="/sunrise-sunset/sunrise-sunset-times">
+              <a className="card">
+                <h3>Sunrise & Sunset &rarr;</h3>
+                <p>Check sunrise and sunset times by location</p>
+              </a>
+            </Link>
 
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+            <Link href="/suninfo/sun-info">
+              <a className="card">
+                <h3>Sun Information &rarr;</h3>
+                <p>Get some useful information about Sun </p>
+              </a>
+            </Link>
 
+            <Link href="/interesting-facts/interesting-facts">
+              <a className="card">
+                <h3>Interesting Facts &rarr;</h3>
+                <p>Know some Interesting facts about Sun</p>
+              </a>
+            </Link>
+
+            <Link href="/images/images">
+              <a className="card">
+                <h3>Images &rarr;</h3>
+                <p>
+                  Watch some beautiful images of Sun
+                </p>
+              </a>
+            </Link>
+          </div>
+        </main >
+
+        <footer>
           <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="card"
+            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
+            Powered by{' '}
+            CreativeCoders
           </a>
+        </footer>
 
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" className="logo" />
-        </a>
-      </footer>
-
-      <style jsx>{`
+        <style jsx>{`
         .container {
           min-height: 100vh;
           padding: 0 0.5rem;
@@ -70,7 +70,6 @@ export default function Home() {
         }
 
         main {
-          padding: 5rem 0;
           flex: 1;
           display: flex;
           flex-direction: column;
@@ -85,6 +84,7 @@ export default function Home() {
           display: flex;
           justify-content: center;
           align-items: center;
+          color:#FED238;
         }
 
         footer img {
@@ -143,14 +143,12 @@ export default function Home() {
           align-items: center;
           justify-content: center;
           flex-wrap: wrap;
-
-          max-width: 800px;
-          margin-top: 3rem;
+          max-width: 800px;          
         }
 
         .card {
           margin: 1rem;
-          flex-basis: 45%;
+          flex-basis: 100%;
           padding: 1.5rem;
           text-align: left;
           color: inherit;
@@ -158,13 +156,16 @@ export default function Home() {
           border: 1px solid #eaeaea;
           border-radius: 10px;
           transition: color 0.15s ease, border-color 0.15s ease;
+          background-color:#000;
+          opacity:0.8;    
         }
 
         .card:hover,
         .card:focus,
         .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
+          color: #000;
+          border-color: #FBAE1D;
+          background-color:#FBAE1D;
         }
 
         .card h3 {
@@ -190,7 +191,7 @@ export default function Home() {
         }
       `}</style>
 
-      <style jsx global>{`
+        <style jsx global>{`
         html,
         body {
           padding: 0;
@@ -204,6 +205,7 @@ export default function Home() {
           box-sizing: border-box;
         }
       `}</style>
-    </div>
+      </div >
+    </Layout>
   )
 }
