@@ -5,7 +5,7 @@ import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
 
 const name = 'SunInfo';
-export const siteTitle = 'Sunrise & Sunset';
+export const siteTitle = 'Suninfo';
 
 export default function Layout({ children, home }) {
     return (

@@ -39,7 +39,7 @@ class SunriseSunsetTimes extends Component {
         return (
             <Layout>
                 <Head>
-                    <title>Sunrise and Sunset</title>
+                    <title>Suninfo</title>
                 </Head>
 
                 <div className="container ss-wrapper">
