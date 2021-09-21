@@ -2,12 +2,23 @@ import Head from 'next/head';
 import Layout, { siteTitle } from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
+import { getSortedPostsData } from '../lib/posts';
+import Date from '../components/date';
 
-export default function Home() {
+export async function getStaticProps() {
+  const allPostsData = getSortedPostsData()
+  return {
+    props: {
+      allPostsData
+    }
+  }
+}
+
+export default function Home({ allPostsData }) {
   return (
     <Layout home>
 
-      <div className="container">
+      <div className="main-wrapper">
         <Head>
           <title>{siteTitle}</title>
           <link rel="icon" href="/favicon.ico" />
@@ -23,19 +34,12 @@ export default function Home() {
               </a>
             </Link>
 
-            <Link href="/suninfo/sun-info">
-              <a className="card">
-                <h3>Sun Information &rarr;</h3>
-                <p>Get some useful information about Sun </p>
-              </a>
-            </Link>
-
-            <Link href="/interesting-facts/interesting-facts">
+            {/* <Link href="/interesting-facts/interesting-facts">
               <a className="card">
                 <h3>Interesting Facts &rarr;</h3>
                 <p>Know some Interesting facts about Sun</p>
               </a>
-            </Link>
+            </Link> */}
 
             <Link href="/images/images">
               <a className="card">
@@ -45,8 +49,27 @@ export default function Home() {
                 </p>
               </a>
             </Link>
+
           </div>
         </main >
+
+        {/* Add this <section> tag below the existing <section> tag */}
+        {/* <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+          <h2 className={utilStyles.headingLg}>Blog</h2>
+          <ul className={utilStyles.list}>
+            {allPostsData.map(({ id, date, title }) => (
+              <li className={utilStyles.listItem} key={id}>
+                <Link href={`/posts/${id}`}>
+                  <a>{title}</a>
+                </Link>
+                <br />
+                <small className={utilStyles.lightText}>
+                  <Date dateString={date} />
+                </small>
+              </li>
+            ))}
+          </ul>
+        </section> */}
 
         <footer>
           <a
@@ -79,7 +102,7 @@ export default function Home() {
 
         footer {
           width: 100%;
-          height: 100px;
+          height: 50px;
           border-top: 1px solid #eaeaea;
           display: flex;
           justify-content: center;
