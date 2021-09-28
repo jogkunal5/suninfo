@@ -53,7 +53,7 @@ class SunriseSunsetTimes extends Component {
                                 <input id="name" name="name" type="text" placeholder="Ex. New York" className="form-control" required />
                             </div>
                             <div className="col-auto">
-                                <button type="submit" className="btn btn-success">Register</button>
+                                <button type="submit" className="btn btn-success">Submit</button>
                             </div>
                         </div>
                     </form>
